@@ -1,6 +1,6 @@
 <!-- Nik Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nik', 'Nik:') !!}
+    {!! Form::label('nik', 'NIK:') !!}
     {!! Form::text('nik', null, ['class' => 'form-control']) !!}
 </div>
 

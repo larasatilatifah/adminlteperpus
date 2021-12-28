@@ -7,21 +7,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Individu
+ * Class Keluarga
  * @package App\Models
- * @version October 27, 2021, 8:13 pm UTC
+ * @version December 9, 2021, 2:23 am UTC
  *
- * @property string $nik
- * @property string $nama
- * @property string $alamat
+ * @property string $nomor
+ * @property int $individu_id
+ * @property string $peran
  */
-class Individu extends Model
+class Keluarga extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'individus';
+    public $table = 'keluargas';
     
 
     protected $dates = ['deleted_at'];
@@ -29,10 +29,9 @@ class Individu extends Model
 
 
     public $fillable = [
-        'nik',
-        'nama',
-        'alamat',
-        'tanggal_lahir'
+        'nomor',
+        'individu_id',
+        'peran'
     ];
 
     /**
@@ -42,10 +41,8 @@ class Individu extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nik' => 'string',
-        'nama' => 'string',
-        'alamat' => 'string',
-        'tanggal_lahir' => 'date'
+        'nomor' => 'string',
+        'peran' => 'string'
     ];
 
     /**
@@ -54,9 +51,14 @@ class Individu extends Model
      * @var array
      */
     public static $rules = [
-        'nik' => 'required',
-        'nama' => 'required'
+        'nomor' => 'required',
+        'individu_id' => 'required',
+        'peran' => 'required'
     ];
+
+    public function individu() {
+        return $this->belongsTo('App\Models\Individu', 'individu_id');
+    }
 
     
 }

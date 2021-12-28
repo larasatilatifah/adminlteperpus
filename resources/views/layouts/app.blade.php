@@ -32,6 +32,9 @@
           integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw=="
           crossorigin="anonymous"/>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+          rel="stylesheet">
+
     @yield('third_party_stylesheets')
 
     @stack('page_css')
@@ -145,6 +148,13 @@
     $("input[data-bootstrap-switch]").each(function(){
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
+</script>
+
+<script> src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"</script>
+<script src="{{ url('/vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+<script>
+    var route_prefix = "http://localhost/adminlteperpus/public/filemanager";
+    $('#lfm').filemanager('file', {prefix: route_prefix});
 </script>
 
 @yield('third_party_scripts')
